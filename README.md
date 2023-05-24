@@ -20,7 +20,7 @@ Code and dataset will be released later this year. Stay tuned!
 ```
 @article{liu20233dovs,
   title={3D Open-vocabulary Segmentation with Foundation Models},
-  author={Liu, Kunhao and Zhan, Fangneng and Zhang, Jiahui and Xu, Muyu and Yu, Yingchen and Saddik, Abdulmotaleb El and Theobalt, Christian and Lu, Shijian and Xing, Eric},
+  author={Liu, Kunhao and Zhan, Fangneng and Zhang, Jiahui and Xu, Muyu and Yu, Yingchen and Saddik, Abdulmotaleb El and Theobalt, Christian and Xing, Eric and Lu, Shijian},
   journal={arXiv preprint arXiv:2305.14093},
   year={2023}
 }
