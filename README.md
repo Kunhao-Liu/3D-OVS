@@ -91,7 +91,7 @@ For custom scenes, you can generate the camera poses using Colmap following [the
 If your custom data does not have annotated segmentation maps, you can set `has_segmentation_maps` to 0 in the config file. 
 
 ### 4. Bad segmentation results
-The bad segmentation results may be due to poor geometry reconstruction, erroneous camera poses, or inaccurate text prompts. If none of the above are the main reasons, you can try adjusting the `dino_neg_weight`` in the config file.
+The bad segmentation results may be due to poor geometry reconstruction, erroneous camera poses, or inaccurate text prompts. If none of the above are the main reasons, you can try adjusting the `dino_neg_weight` in the config file.
 Usually, if the segmentation results do not align well with the object boundaries, you can set `dino_neg_weight` to a value larger than 0.2, such as 0.22. If the segmentation is making mistakes, you can set `dino_neg_weight` to a value smaller than 0.2, such as 0.18. Since `dino_neg_weight` encourages the model to assign different labels when the DINO features are distant, the higher it is, the more unstable the model becomes, but it also encourages sharper boundaries.
 
 ## TODO
