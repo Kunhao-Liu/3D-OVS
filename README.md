@@ -51,7 +51,7 @@ where `images` contains the RGB images, `segmentations` contains the segmentatio
 ## Quick Start
 We provide the checkpoints for the scenes in [this link](https://drive.google.com/drive/folders/1v4hFHkdjapRAdiV8zuN4FWdZiW_EHUfw?usp=sharing). You can then test the segmentation by:
 ```
-bash scripts/test_segmentation.sh [CKPT_PATH] [CONFIG_FILE] [GPU ID] 
+bash scripts/test_segmentation.sh [CKPT_PATH] [CONFIG_FILE] [GPU_ID] 
 ```
 The config files are stored in `configs`, each file is named after `configs/$scene_name.txt`. The results will be saved in the checkpoint's path. More details can be found in `scripts/test_segmentation.sh`.
 
@@ -91,7 +91,8 @@ For custom scenes, you can generate the camera poses using Colmap following [the
 If your custom data does not have annotated segmentation maps, you can set `has_segmentation_maps` to 0 in the config file. 
 
 ### 4. Bad segmentation results
-Usually, if the segmentation results are not aligned with the object boundaries well enough, you can set `dino_neg_weight` larger than 0.2 such as 0.22. If the segmentation makes mistakes, you can set `dino_neg_weight` smaller than 0.2 such as 0.18. As `dino_neg_weight` encourages the model to have different labels when the DINO features are distant, the higher it is, the model becomes more instable but encourages sharper boundaries.
+The bad segmentation results may be due to poor geometry reconstruction, erroneous camera poses, or inaccurate text prompts. If none of the above are the main reasons, you can try adjusting the `dino_neg_weight`` in the config file.
+Usually, if the segmentation results do not align well with the object boundaries, you can set `dino_neg_weight` to a value larger than 0.2, such as 0.22. If the segmentation is making mistakes, you can set `dino_neg_weight` to a value smaller than 0.2, such as 0.18. Since `dino_neg_weight` encourages the model to assign different labels when the DINO features are distant, the higher it is, the more unstable the model becomes, but it also encourages sharper boundaries.
 
 ## TODO
 - [ ] Currently we only support faceforwarding scenes, it can be extended to support unbouded 360 scenes using some coordinate transformation.
@@ -102,8 +103,8 @@ This repo is heavily based on the [TensoRF](https://github.com/apchenstu/TensoRF
 
 ## Citation
 ```
-@article{liu20233d,
-  title={3D Open-vocabulary Segmentation with Foundation Models},
+@article{liu2023weakly,
+  title={Weakly Supervised 3D Open-vocabulary Segmentation},
   author={Liu, Kunhao and Zhan, Fangneng and Zhang, Jiahui and Xu, Muyu and Yu, Yingchen and Saddik, Abdulmotaleb El and Theobalt, Christian and Xing, Eric and Lu, Shijian},
   journal={arXiv preprint arXiv:2305.14093},
   year={2023}
