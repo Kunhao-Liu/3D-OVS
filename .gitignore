@@ -1,0 +1,7 @@
+__pycache__
+log*
+pretrained
+images
+visualization
+clip_features
+data
