@@ -24,7 +24,7 @@ pip install git+https://github.com/openai/CLIP.git
 ```
 
 ## Datasets
-Please download the datasets from [this link](https://drive.google.com/drive/folders/1kdV14Gu5nZX6WOPbccG7t7obP_aXkOuC?usp=sharing) and put the datasets in `./data`. You can put the datasets elsewhere if you modify the corresponding paths in the configs. The datasets are orgnized as
+Please download the datasets from [this link](https://drive.google.com/drive/folders/1kdV14Gu5nZX6WOPbccG7t7obP_aXkOuC?usp=sharing) and put the datasets in `./data`. You can put the datasets elsewhere if you modify the corresponding paths in the configs. The datasets are organized as
 ```
 /data
 |  /scene0
@@ -56,9 +56,9 @@ bash scripts/test_segmentation.sh [CKPT_PATH] [CONFIG_FILE] [GPU_ID]
 The config files are stored in `configs`, each file is named after `configs/$scene_name.txt`. The results will be saved in the checkpoint's path. More details can be found in `scripts/test_segmentation.sh`.
 
 
-## Data Preperation
+## Data Preparation
 We need to extract a hierarchy of CLIP features from image patches for training. 
-You can extract the CLIP features by: (Please modity $scene_name to the scene name you want to extract features for)
+You can extract the CLIP features by: (Please modify $scene_name to the scene name you want to extract features for)
 ```
 bash scripts/extract_clip_features.sh data/$scene_name/images clip_features/$scene_name [GPU_ID]
 ```
@@ -95,7 +95,7 @@ The bad segmentation results may be due to poor geometry reconstruction, erroneo
 Usually, if the segmentation results do not align well with the object boundaries, you can set `dino_neg_weight` to a value larger than 0.2, such as 0.22. If the segmentation is making mistakes, you can set `dino_neg_weight` to a value smaller than 0.2, such as 0.18. Since `dino_neg_weight` encourages the model to assign different labels when the DINO features are distant, the higher it is, the more unstable the model becomes, but it also encourages sharper boundaries.
 
 ## TODO
-- [ ] Currently we only support faceforwarding scenes, it can be extended to support unbouded 360 scenes using some coordinate transformation.
+- [ ] Currently we only support faceforwarding scenes, it can be extended to support unbounded 360 scenes using some coordinate transformation.
 
 ---
 ## Acknowledgments
